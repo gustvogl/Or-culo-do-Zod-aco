@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oráculo do Zodíaco - Armadura de Ouro</title>
+    <link rel="stylesheet" href="desafil-final.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="oraculo-container">
+        <div class="header">
+            <h1>Oráculo do Zodíaco</h1>
+            <p>Descubra qual Cavaleiro de Ouro rege o seu destino.</p>
+        </div>
+
+        <div class="input-area">
+            <label for="data-nascimento">Digite sua Data de Nascimento:</label>
+            <input type="date" id="data-nascimento" required>
+            <button onclick="revelarArmadura()">Descobrir</button>
+        </div>
+
+        <div id="resultado-area" class="hidden">
+            <img id="img-cavaleiro" src="" alt="Imagem do Cavaleiro" class="cavaleiro-avatar">
+            
+            <h2 id="nome-cavaleiro"></h2>
+            <h3 id="nome-signo"></h3>
+            <p id="desc-poder"></p>
+        </div>
+    </div>
+
+    <script src="desafil-final.js"></script>
+</body>
+</html>

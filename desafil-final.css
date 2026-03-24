@@ -1,0 +1,153 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #0f172a; /* Fundo mais escuro para destacar a aura dourada */
+    background-image: radial-gradient(circle at center, #1e293b, #020617);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #e2e8f0;
+    padding: 20px;
+}
+
+/* Container que segura o lado esquerdo e direito */
+.layout-wrapper {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+    flex-wrap: wrap; /* Faz quebrar a linha no celular */
+    justify-content: center;
+}
+
+/* Estilo Base dos Cartões */
+.oraculo-container, .ficha-container {
+    background: rgba(15, 23, 42, 0.85);
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.05);
+    backdrop-filter: blur(10px);
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+/* Cabeçalhos e Textos */
+.header h1 {
+    font-family: 'Cinzel', serif;
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.header p { color: #94a3b8; margin-bottom: 30px; font-style: italic; }
+
+.input-area { display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; }
+
+label { font-weight: 600; font-size: 0.9rem; color: #cbd5e1; }
+
+input[type="date"] {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid #475569;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color-scheme: dark;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="date"]:focus { border-color: #d4af37; }
+
+button {
+    font-family: 'Cinzel', serif;
+    background: linear-gradient(135deg, #b38728, #fcf6ba, #bf953f);
+    color: #000;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.7);
+    background: linear-gradient(135deg, #fcf6ba, #bf953f, #fcf6ba);
+}
+
+/* --- Área da Ficha do Cavaleiro (Lado Direito) --- */
+.hidden { display: none; } /* Esconde o elemento totalmente antes de calcular */
+
+.ficha-header { text-align: center; margin-bottom: 25px; border-bottom: 1px solid #334155; padding-bottom: 20px; }
+
+.cavaleiro-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid #d4af37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    margin-bottom: 15px;
+}
+
+#nome-cavaleiro {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: #fcf6ba;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+#nome-signo { color: #94a3b8; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; }
+
+/* Status / Atributos (Barrinhas) */
+.stat-row { display: flex; align-items: center; margin-bottom: 15px; }
+
+.stat-label { width: 110px; font-weight: 600; font-size: 0.9rem; color: #cbd5e1; }
+
+.bar-bg {
+    flex: 1;
+    background: #1e293b;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #334155;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 0%; /* Inicia zerado, o JS preenche */
+    background: linear-gradient(90deg, #b38728, #fcf6ba);
+    box-shadow: 0 0 10px #d4af37;
+    border-radius: 6px;
+    transition: width 1.5s ease-out; /* Animação suave preenchendo */
+}
+
+.ficha-extra {
+    margin-top: 25px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-left: 3px solid #d4af37;
+}
+
+.ficha-extra strong { color: #d4af37; }
+
+#mensagem-oraculo {
+    color: #d4af37;
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+}
